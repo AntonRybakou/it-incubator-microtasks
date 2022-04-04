@@ -1,8 +1,7 @@
-
-
 .table {
     background-color: royalblue;
     border: 3px solid black;
+    margin: 10px auto;
 }
 
 .table__title {
