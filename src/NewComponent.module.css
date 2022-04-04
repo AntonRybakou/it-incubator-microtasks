@@ -1,0 +1,23 @@
+
+
+.table {
+    background-color: royalblue;
+    border: 3px solid black;
+}
+
+.table__title {
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+}
+
+.table_item {
+    text-align: center;
+    vertical-align: center;
+    padding: 5px;
+    border: 1px dotted black;
+}
+
+tr:hover {
+    background-color: lightskyblue;
+}
