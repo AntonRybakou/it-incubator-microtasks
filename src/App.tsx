@@ -7,9 +7,9 @@ import {Header} from "./site/Header";
 const App = () => {
     return (
         <>
-            <Header title={'NEW BODY'}/>
-            <Body/>
-            <Footer/>
+            <Header title={'NEW HEADER'}/>
+            <Body titleForBody={'NEW BODY'}/>
+            <Footer titleForFooter={'NEW FOOTER'}/>
         </>
     );
 }
