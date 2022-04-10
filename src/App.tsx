@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import {VideoFiveFilter} from "./components/VideoFiveFilter";
+import {FullInput} from "./components/FullInput/FullInput";
+import {Input} from "./components/FullInput/Input";
+import {Button} from "./components/FullInput/Button";
+
+export type FilterType = 'All' | 'RUBLS' | 'Dollars';
 
 /*
 Lesson 2 - map
@@ -57,6 +61,11 @@ return (
     </div>
 );*/
 
+/*
+Lesson 5 - filter
+
+import {VideoFiveFilter} from "./components/VideoFiveFilter";
+
 export type FilterType = 'All' | 'RUBLS' | 'Dollars';
 
 export const App = () => {
@@ -93,4 +102,53 @@ export const App = () => {
         </>
 
     );
+}*/
+
+// Lesson 6 - input
+
+type MessageType = {
+    message: string;
+}
+
+export const App = () => {
+
+    // Setting global state
+    let [message, setMessage] = useState<Array<MessageType>>([
+        {message: 'message 1'},
+        {message: 'message 2'},
+        {message: 'message 3'},
+    ])
+    // Set local global state for Input
+    let [input, setInput] = useState('')
+    // Function to add new message (for FullInput component)
+    const addMessage = (value: string) => {
+        let newMessage: MessageType = {message: value};
+        setMessage([newMessage, ...message])
+    }
+    // Function to add new message from global input state
+    const callBackButtonHandler = () => {
+        addMessage(input);
+        setInput('');
+    }
+
+    return (
+        <div className={'App'}>
+            {/*<FullInput addNewMessage={addMessage}/>*/}
+
+            {/*<div>
+                <input/>
+                <button>+</button>
+            </div>*/}
+
+            <Input input={input} setInput={setInput}/>
+            <Button name={'+'} callBack={callBackButtonHandler}/>
+
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
+        </div>
+    )
+
 }
